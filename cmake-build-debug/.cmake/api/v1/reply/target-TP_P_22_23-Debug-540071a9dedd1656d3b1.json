@@ -101,8 +101,7 @@
 			"sourceIndexes" : 
 			[
 				2,
-				3,
-				5
+				3
 			]
 		}
 	],
@@ -135,11 +134,6 @@
 			"compileGroupIndex" : 0,
 			"path" : "interface.c",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "interface.h",
-			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

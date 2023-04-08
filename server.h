@@ -4,7 +4,8 @@
 #ifndef _SERVER_H_
 #define _SERVER_H_
 
-#define TAM 50
+#include "util.h"
+#define TAM 256
 
 typedef struct paragem{
   char id[TAM]; //valores alfanumericos
@@ -12,9 +13,15 @@ typedef struct paragem{
 }PARAGEM, *pointerParagem;
 
 typedef struct server{
-  int* numParagens;
+  int *numParagens;
   pointerParagem paragens;
 }SERVER, *pointerServer;
+
+
+int interface(SERVER server, PARAGEM paragem);
+void cmdRegistarParagem(pointerServer server, char *nomeParagem);
+void cmdListp(pointerServer server);
+char *alfaNumGenerator(int comprimento);
 
 
 #endif //_SERVER_H_
