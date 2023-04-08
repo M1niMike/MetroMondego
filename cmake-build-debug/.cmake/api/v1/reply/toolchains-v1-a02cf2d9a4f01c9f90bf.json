@@ -1,0 +1,50 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"C:/Program Files (x86)/w64devkit/lib/gcc/x86_64-w64-mingw32/12.2.0/include",
+						"C:/Program Files (x86)/w64devkit/lib/gcc/x86_64-w64-mingw32/12.2.0/include-fixed",
+						"C:/Program Files (x86)/w64devkit/x86_64-w64-mingw32/include"
+					],
+					"linkDirectories" : [],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : []
+				},
+				"path" : "C:/Program Files (x86)/w64devkit/bin/cc.exe",
+				"version" : "12.2.0"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"implicit" : {},
+				"path" : "C:/Program Files (x86)/w64devkit/bin/windres.exe"
+			},
+			"language" : "RC",
+			"sourceFileExtensions" : 
+			[
+				"rc",
+				"RC"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

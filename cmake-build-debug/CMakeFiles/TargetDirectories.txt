@@ -1,0 +1,3 @@
+C:/P/TP/TP_P_22_23/cmake-build-debug/CMakeFiles/TP_P_22_23.dir
+C:/P/TP/TP_P_22_23/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/P/TP/TP_P_22_23/cmake-build-debug/CMakeFiles/rebuild_cache.dir
