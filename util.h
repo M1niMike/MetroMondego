@@ -1,6 +1,5 @@
-//
-// Created by mikae on 08/04/2023.
-//
+//Micael Melo Eid
+//2019112744
 
 #ifndef _UTIL_H_
 #define _UTIL_H_

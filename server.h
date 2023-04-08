@@ -1,12 +1,10 @@
-//
-// Created by mikae on 08/04/2023.
-//
+//Micael Melo Eid
+//2019112744
 
 #ifndef _SERVER_H_
 #define _SERVER_H_
 
 #define TAM 50
-
 
 typedef struct paragem{
   char id[TAM]; //valores alfanumericos

@@ -3,4 +3,4 @@ project(TP_P_22_23 C)
 
 set(CMAKE_C_STANDARD 17)
 
-add_executable(TP_P_22_23 main.c server.c util.h server.h)
+add_executable(TP_P_22_23 main.c server.c util.h server.h interface.c interface.h)
