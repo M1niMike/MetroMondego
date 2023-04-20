@@ -18,5 +18,6 @@ int main()
     while(flag != 1){
         flag = interface(s,p);
     }
+
     return 0;
 }

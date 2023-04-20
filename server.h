@@ -22,6 +22,7 @@ int interface(SERVER server, PARAGEM paragem);
 void cmdRegistarParagem(pointerServer server, char *nomeParagem);
 void cmdListp(pointerServer server);
 char *alfaNumGenerator(int comprimento);
-
+void cmdEliminarParagem(pointerServer server, char *id ,PARAGEM paragem);
+bool verificaParagem(pointerServer server, char* nome);
 
 #endif //_SERVER_H_

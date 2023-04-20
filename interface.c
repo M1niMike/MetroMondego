@@ -3,14 +3,82 @@
 
 #include "server.h"
 
+
+//void removePessoaFromArray(ptrbackend backend, USER user)
+//{
+//    for (int i = 0; i < backend->numUsers; i++)
+//    {
+//        if (strcmp(backend->utilizadores[i].nome, user.nome) == 0) // se o nome for igual
+//        {
+//            if (backend->utilizadores[i].pid == user.pid) // e ele existir
+//            {
+//                resetDados(backend, &backend->utilizadores[i]);
+//                break;
+//            }
+//        }
+//    }
+//}
+
+
+bool verificaParagem(pointerServer server, char* nome)
+{
+    for (int i = 0; i < *server->numParagens; i++)
+    {
+        if (strcmp(server->paragens[i].nome, nome) == 0) // pid diferente do processo que está a tentar dar login
+        {
+            printf("\n[AVISO] - Paragem [%s] ja existe\n", nome);
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+void cmdEliminarParagem(pointerServer server, char *id ,PARAGEM paragem){
+    printf("Quantidade de paragens atual: %d", *server->numParagens);
+
+    for(int i = 0; i < *server->numParagens; i++){
+        if(strcmp(server->paragens[i].id, id) == 0){
+            //Copia o proximo elemento para o elemento atual
+            server->paragens[i] = server->paragens[i+1];
+            break;
+        }
+
+        //mensagem para caso n encontre a paragem
+        if(i == *server->numParagens){
+            printf("\nParagem nao encontrada\n");
+            return;
+        }
+    }
+
+    //Decrementa o contador e realoca espaco para o array
+    (*server->numParagens)--;
+    server->paragens = realloc(server->paragens, *server->numParagens * sizeof(PARAGEM));
+
+    printf("Quantidade de paragens apos a remocao: %d", *server->numParagens);
+    printf("\nLista de paragens atualizada.\n");
+
+
+}
+
 void cmdRegistarParagem(pointerServer server ,char *nomeParagem){
 
     int aux = *server->numParagens;
-    strcpy(server->paragens[aux].nome, nomeParagem);
-    strcpy(server->paragens[aux].id, alfaNumGenerator(4));
-    (*server->numParagens)++;
 
-    printf("[AVISO] - Paragem Adicionada com sucesso!\n");
+    if(verificaParagem(server, nomeParagem)){
+        strcpy(server->paragens[aux].nome, nomeParagem);
+        strcpy(server->paragens[aux].id, alfaNumGenerator(4));
+        (*server->numParagens)++;
+
+        //Realoca espaco ao array, server para n crashar quando add apos ter eliminado algum
+        server->paragens = realloc(server->paragens, *server->numParagens * sizeof(PARAGEM));
+        printf("[AVISO] - Paragem Adicionada com sucesso!\n");
+    }
+
+
+
+
 
 }
 
@@ -60,7 +128,7 @@ int interface(SERVER server, PARAGEM paragem)
 
             if (arg[1] != NULL)
             {
-                //cmdEliminarParagem(&server, arg[1]);
+                cmdEliminarParagem(&server, arg[1], paragem);
             }
             else
             {
@@ -97,6 +165,8 @@ int interface(SERVER server, PARAGEM paragem)
         }
         else if (strcmp(token, "exit") == 0)
         {
+            free(server.paragens);
+            free(server.numParagens);
             return 1;
         }
         else

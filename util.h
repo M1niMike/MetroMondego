@@ -8,4 +8,5 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <stdbool.h>
 #endif //_UTIL_H_
