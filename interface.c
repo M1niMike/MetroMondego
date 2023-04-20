@@ -4,21 +4,6 @@
 #include "server.h"
 
 
-//void removePessoaFromArray(ptrbackend backend, USER user)
-//{
-//    for (int i = 0; i < backend->numUsers; i++)
-//    {
-//        if (strcmp(backend->utilizadores[i].nome, user.nome) == 0) // se o nome for igual
-//        {
-//            if (backend->utilizadores[i].pid == user.pid) // e ele existir
-//            {
-//                resetDados(backend, &backend->utilizadores[i]);
-//                break;
-//            }
-//        }
-//    }
-//}
-
 
 bool verificaParagem(pointerServer server, char* nome)
 {
