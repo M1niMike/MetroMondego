@@ -11,3 +11,6 @@ Possiveis comandos:
 
 --Salvar paragem e linhas dentro de um ficheiro binario (ver ponto 2.4)
 
+
+Correcao de eliminar, ver exemplo do exercicio
+
