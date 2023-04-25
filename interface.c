@@ -49,6 +49,9 @@ void cmdEliminarParagem(pointerServer server, char *id ,PARAGEM paragem){
 
 void cmdRegistarParagem(pointerServer server ,char *nomeParagem){
 
+    server->numParagens = (int*) malloc(sizeof(int));
+    *(server->numParagens) = 0;
+
     int aux = *server->numParagens;
 
     if(verificaParagem(server, nomeParagem)){

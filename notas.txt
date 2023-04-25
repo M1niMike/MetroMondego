@@ -10,7 +10,6 @@ Possiveis comandos:
     Calculo de Percurso (ver ponto 2.3 no enunciado)
 
 --Salvar paragem e linhas dentro de um ficheiro binario (ver ponto 2.4)
-
-
-Correcao de eliminar, ver exemplo do exercicio
+--Corrigir a logica dos arryas + comandos, baseados no ex (ArrayDinamico)
+--Fazer a lista ligada de trajetos.
 

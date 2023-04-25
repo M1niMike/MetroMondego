@@ -9,10 +9,7 @@ int main()
     SERVER s;
     int maxParagem = 5;
 
-    s.paragens = malloc(maxParagem * sizeof (*s.paragens));
-
-    s.numParagens = (int*) malloc(sizeof(int));
-    *(s.numParagens) = 0;
+   // s.paragens = malloc(maxParagem * sizeof (*s.paragens));
 
     int flag = 0;
     while(flag != 1){
