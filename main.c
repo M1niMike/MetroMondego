@@ -7,6 +7,7 @@
 int main()
 {
    pointerParagem ppr = NULL;
+   pointerLinha pln = NULL;
    int total = 0;
    int i;
 
@@ -18,6 +19,7 @@ int main()
             case 1: ppr = cmdRegistarParagem(ppr, &total); break;
             case 2: ppr = cmdEliminarParagem(ppr, &total); break;
             case 3: cmdListp(ppr, &total); break;
+            case 4: pln = cmdAdicionaLinha(pln); break;
         }
     }while(i != 8);
 

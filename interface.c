@@ -9,9 +9,9 @@ bool verificaParagem(PARAGEM p, pointerParagem ppr, int tam)
 {
     for (int i = 0; i < tam; i++)
     {
-        if (strcmp(ppr[i].nome, p.nome) == 0)
+        if (strcmp(ppr[i].nomeParagem, p.nomeParagem) == 0)
         {
-            printf("\n[AVISO] - Paragem [%s] ja existe\n", p.nome);
+            printf("\n[AVISO] - Paragem [%s] ja existe\n", p.nomeParagem);
             return false;
         }
     }
@@ -31,7 +31,7 @@ pointerParagem cmdEliminarParagem(pointerParagem ppr, int *tam){
 
     for(int i = 0; i < *tam; i++){
         if(strcmp(ppr[i].id, id) == 0){
-            printf("[AVISO] - A remover [%s]\n", ppr[i].nome);
+            printf("[AVISO] - A remover [%s]\n", ppr[i].nomeParagem);
             index = i;
             break;
 
@@ -69,7 +69,7 @@ pointerParagem cmdRegistarParagem(pointerParagem ppr, int *tam)
     }
 
     printf("\nInsira um nome de paragem:");
-    scanf(" %s", novo.nome);
+    scanf(" %s", novo.nomeParagem);
 
 
     if(!verificaParagem(novo, ppr, *tam)){
@@ -90,7 +90,7 @@ void cmdListp(pointerParagem ppr, int *tam){
     if(*tam > 0){
         for(int i = 0; i < *tam; i++){
             if(strcmp(ppr[i].id, "\0") != 0){
-                printf("\nNome da Paragem: %s", ppr[i].nome);
+                printf("\nNome da Paragem: %s", ppr[i].nomeParagem);
                 printf("\nID da Paragem: %s\n", ppr[i].id);
             }
         }
@@ -99,6 +99,24 @@ void cmdListp(pointerParagem ppr, int *tam){
     }
 }
 
+pointerLinha cmdAdicionaLinha(pointerLinha head){
+    pointerLinha novo;
+    pointerLinha aux = head;
+
+    novo = malloc(sizeof(pointerLinha));
+
+    if(novo == NULL){
+        printf("[AVISO] - Erro na realocacao de memoria (adicionar linha)");
+        return head;
+    }
+
+    printf("\nInsira um nome de linha:");
+    scanf(" %s", novo->nomeLinha);
+}
+
+void cmdListl(){}
+void cmdAtualizaLinha(){}
+pointerLinha cmdEliminaLinha(){}
 
 int interface()
 {
@@ -108,9 +126,9 @@ int interface()
    puts("2 - Elimina Paragem");
    puts("3 - Lista Paragem");
    puts("4 - Adiciona Linha");
-   puts("5 - Atualiza Linha");
-   puts("6 - Lista Linha");
-   puts("7 - Calcula Percurso");
+   //puts("5 - Atualiza Linha");
+   //puts("6 - Lista Linha");
+   //puts("7 - Calcula Percurso");
    puts("8 - Sair");
 
    do{

@@ -9,14 +9,31 @@
 
 //typedef struct paragem{
 //  char id[TAM]; //valores alfanumericos
-//  char nome[TAM];
+//  char nomeParagem[TAM];
 //}PARAGEM, *pointerParagem;
+
 typedef struct paragem PARAGEM, *pointerParagem;
 
 struct paragem{
   char id[TAM];
-  char nome[TAM];
+  char nomeParagem[TAM];
 };
+
+typedef struct linha LINHA, *pointerLinha;
+
+struct linha{
+  char nomeLinha[TAM];
+  int numParagens;
+  int numLinhas;
+
+  pointerParagem paragens;
+  pointerLinha  prox;
+};
+
+
+
+
+
 
 //typedef struct server{
 //  int *numParagens;
@@ -30,5 +47,9 @@ void cmdListp(pointerParagem p, int *tam);
 char *alfaNumGenerator(int comprimento);
 pointerParagem cmdEliminarParagem(pointerParagem ppr, int *tam);
 bool verificaParagem(PARAGEM p, pointerParagem ppr, int tam);
+pointerLinha cmdAdicionaLinha(pointerLinha pln);
+void cmdListl();
+void cmdAtualizaLinha();
+pointerLinha cmdEliminaLinha();
 
 #endif //_SERVER_H_
