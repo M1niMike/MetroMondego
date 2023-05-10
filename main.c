@@ -5,9 +5,8 @@
 #include "server.h"
 int main()
 {
-    PARAGEM p;
-    SERVER s;
-    int maxParagem = 5;
+   pointerParagem ppr = NULL;
+   int total = 0;
 
    // s.paragens = malloc(maxParagem * sizeof (*s.paragens));
 
