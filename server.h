@@ -24,12 +24,11 @@ struct paragem{
 //}SERVER, *pointerServer;
 
 
-int interface(PARAGEM paragem);
-//pointerParagem cmdRegistarParagem(pointerParagem paragens, int *numParagens, char *nomeParagem);
-pointerParagem cmdRegistarParagem(SERVER server, int *tam ,char *nomeParagem);
-void cmdListp(pointerParagem p, int tam);
+int interface();
+pointerParagem cmdRegistarParagem(pointerParagem prr, int *tam);
+void cmdListp(pointerParagem p, int *tam);
 char *alfaNumGenerator(int comprimento);
-void cmdEliminarParagem(pointerServer server, char *id , PARAGEM paragem);
-bool verificaParagem(PARAGEM paragem, pointerParagem paragens, int *numParagens, char* nome);
+pointerParagem cmdEliminarParagem(pointerParagem ppr, int *tam);
+bool verificaParagem(PARAGEM p, pointerParagem ppr, int tam);
 
 #endif //_SERVER_H_
