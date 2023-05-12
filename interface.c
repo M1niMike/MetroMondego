@@ -115,6 +115,7 @@ pointerLinha cmdAdicionaLinha(pointerLinha head, int tam)
 
     printf("\nInsira um nome de linha:");
     scanf(" %s", novo->nomeLinha);
+
     novo->numParagens = 0;
     novo->prox = NULL;
 
@@ -225,7 +226,6 @@ pointerLinha adicionaParagemLinha(pointerLinha head, char *nomeLinha, int quantP
             while(quantParagem != 0){
 
                 aux->paragens = cmdRegistarParagem(aux->paragens, &aux->numParagens);
-                aux->numParagens++;
                 quantParagem--;
             }
         }
