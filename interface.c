@@ -1,7 +1,7 @@
 //Micael Melo Eid
 //2019112744
 
-#include "server.h"
+#include "interface.h"
 
 
 
@@ -61,7 +61,8 @@ pointerParagem cmdEliminarParagem(pointerParagem ppr, int *tam){
 pointerParagem cmdRegistarParagem(pointerParagem ppr, int *tam)
 {
     PARAGEM novo;
-    pointerParagem aux = realloc(ppr, sizeof(struct paragem) * (*tam + 1));
+    printf("TAM: %d\n", *tam);
+    pointerParagem aux = realloc(ppr, sizeof(PARAGEM) * (*tam + 1));
 
     if(aux == NULL){
         printf("[AVISO] - Erro na realocacao de memoria (adicionar paragem)\n");
@@ -86,12 +87,13 @@ pointerParagem cmdRegistarParagem(pointerParagem ppr, int *tam)
 }
 
 
-void cmdListp(pointerParagem ppr, int *tam){
-    if(*tam > 0){
-        for(int i = 0; i < *tam; i++){
+void cmdListp(pointerParagem ppr, int tam){
+    if(tam > 0){
+        for(int i = 0; i < tam; i++){
             if(strcmp(ppr[i].id, "\0") != 0){
                 printf("\nNome da Paragem: %s", ppr[i].nomeParagem);
-                printf("\nID da Paragem: %s\n", ppr[i].id);
+                printf("\nID da Paragem: %s", ppr[i].id);
+                //printf("\nQuantidade de Linhas: %d\n", ppr[i].quantLinhas);
             }
         }
     }else{
@@ -99,24 +101,159 @@ void cmdListp(pointerParagem ppr, int *tam){
     }
 }
 
-pointerLinha cmdAdicionaLinha(pointerLinha head){
+pointerLinha cmdAdicionaLinha(pointerLinha head, int tam)
+{
     pointerLinha novo;
     pointerLinha aux = head;
+    int cont = 0;
+    novo = malloc(sizeof(LINHA));
 
-    novo = malloc(sizeof(pointerLinha));
-
-    if(novo == NULL){
+    if (novo == NULL) {
         printf("[AVISO] - Erro na realocacao de memoria (adicionar linha)");
         return head;
     }
 
     printf("\nInsira um nome de linha:");
     scanf(" %s", novo->nomeLinha);
+    novo->numParagens = 0;
+    novo->prox = NULL;
+
+
+    if (head == NULL) {
+        head = novo;
+    } else {
+        if (strcmp(head->nomeLinha, novo->nomeLinha) == 0) {
+            printf("[AVISO] - Essa linha ja existe!\n");
+            free(novo);
+            return head;
+        }
+
+        while (aux->prox != NULL) {
+            if (strcmp(aux->nomeLinha, novo->nomeLinha) == 0) {
+                printf("[AVISO] - Essa linha ja existe!\n");
+                free(novo);
+                return head;
+            }
+            aux = aux->prox;
+        }
+        aux->prox = novo;
+    }
+    return head;
 }
 
-void cmdListl(){}
-void cmdAtualizaLinha(){}
-pointerLinha cmdEliminaLinha(){}
+void cmdListl(pointerLinha head){
+    pointerLinha aux = head;
+
+    if(head == NULL){
+        printf("[AVISO] - Nenhuma linha existente!\n");
+        return;
+    }
+
+    while(aux != NULL){
+        printf("Nome Linha: %s\n", aux->nomeLinha);
+        aux = aux->prox;
+    }
+}
+pointerLinha cmdAtualizaLinha(pointerLinha head){
+    pointerLinha aux = head;
+
+
+    int opcao;
+    char nomeLinha[TAM];
+    int quantParagem = 0;
+    printf("Escolha uma opcao:\n");
+    printf("1. Adicionar paragem\n");
+    printf("2. Remover paragem\n");
+    scanf("%d", &opcao);
+
+    if(opcao == 1){
+
+        printf("Insira o nome da linha que deseja adicionar uma paragem:");
+        scanf("%s", nomeLinha);
+
+        while(aux != NULL){
+            if(strcmp(aux->nomeLinha, nomeLinha) == 0){
+                if(aux->numParagens == 0){
+                    printf("Nao ha paragens nesta linha\n");
+                }
+                printf("Insira a quantidade de paragens que deseja adicionar a linha [%s]:", aux->nomeLinha);
+                scanf("%d", &quantParagem);
+
+                aux = adicionaParagemLinha(aux, nomeLinha, quantParagem);
+            }
+            aux = aux->prox;
+        }
+
+    }else if(opcao == 2){
+        printf("Insira o nome da linha que deseja remover uma paragem:");
+        scanf("%s", nomeLinha);
+
+        while(aux != NULL){
+            if(strcmp(aux->nomeLinha, nomeLinha) == 0){
+                if(aux->numParagens == 0){
+                    printf("Nao ha paragens nesta linha\n");
+                    return head;
+                }
+                printf("Insira a quantidade de paragens que deseja adicionar a linha [%s]:", aux->nomeLinha);
+                scanf("%d", &quantParagem);
+
+                aux = eliminaParagemLinha(aux, nomeLinha, quantParagem);
+            }
+            aux = aux->prox;
+        }
+
+    }else{
+        printf("Opção inserida errada!\n");
+        return head;
+    }
+
+    return head;
+
+}
+pointerLinha adicionaParagemLinha(pointerLinha head, char *nomeLinha, int quantParagem){
+    pointerLinha aux = head;
+
+//    if (isListEmpty(head) == 1){
+//        printf("\n[ERRO] Nao existem linhas no sistema atualmente. Nada a adicionar.\n");
+//        return head;
+//    }
+
+    while(aux != NULL){
+        if (strcmp(aux->nomeLinha, nomeLinha) == 0){
+            printf("Aux->numParagens: %d\n", aux->numParagens);
+            printf("quantParagem: %d\n", quantParagem);
+            while(quantParagem != 0){
+
+                aux->paragens = cmdRegistarParagem(aux->paragens, &aux->numParagens);
+                aux->numParagens++;
+                quantParagem--;
+            }
+        }
+        aux = aux->prox;
+    }
+    return head;
+}
+
+pointerLinha eliminaParagemLinha(pointerLinha head, char *nomeLinha, int quantParagem){
+    pointerLinha aux = head;
+
+//    if (isListEmpty(head) == 1){
+//        printf("\n[ERRO] Nao existem linhas no sistema atualmente. Nada a adicionar.\n");
+//        return head;
+//    }
+
+    while(aux != NULL){
+        if (strcmp(aux->nomeLinha, nomeLinha) == 0){
+            while(aux->numParagens >= quantParagem && quantParagem > 0){
+                aux->paragens = cmdEliminarParagem(aux->paragens, &aux->numParagens);
+                quantParagem--;
+            }
+        }
+        aux = aux->prox;
+    }
+    return head;
+}
+
 
 int interface()
 {
@@ -126,8 +263,8 @@ int interface()
    puts("2 - Elimina Paragem");
    puts("3 - Lista Paragem");
    puts("4 - Adiciona Linha");
-   //puts("5 - Atualiza Linha");
-   //puts("6 - Lista Linha");
+   puts("5 - Atualiza Linha");
+   puts("6 - Lista Linha");
    //puts("7 - Calcula Percurso");
    puts("8 - Sair");
 

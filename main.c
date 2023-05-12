@@ -2,7 +2,7 @@
 //2019112744
 
 #include "util.h"
-#include "server.h"
+#include "interface.h"
 
 int main()
 {
@@ -18,8 +18,10 @@ int main()
         switch(i){
             case 1: ppr = cmdRegistarParagem(ppr, &total); break;
             case 2: ppr = cmdEliminarParagem(ppr, &total); break;
-            case 3: cmdListp(ppr, &total); break;
-            case 4: pln = cmdAdicionaLinha(pln); break;
+            case 3: cmdListp(ppr, total); break;
+            case 4: pln = cmdAdicionaLinha(pln, total); break;
+            case 5: pln = cmdAtualizaLinha(pln); break;
+            case 6: cmdListl(pln); break;
         }
     }while(i != 8);
 

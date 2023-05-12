@@ -55,8 +55,8 @@ build CMakeFiles/TP_P_22_23.dir/main.c.obj: C_COMPILER__TP_P_22_23_Debug C$:/P/T
   OBJECT_DIR = CMakeFiles\TP_P_22_23.dir
   OBJECT_FILE_DIR = CMakeFiles\TP_P_22_23.dir
 
-build CMakeFiles/TP_P_22_23.dir/server.c.obj: C_COMPILER__TP_P_22_23_Debug C$:/P/TP/TP_P_22_23/server.c || cmake_object_order_depends_target_TP_P_22_23
-  DEP_FILE = CMakeFiles\TP_P_22_23.dir\server.c.obj.d
+build CMakeFiles/TP_P_22_23.dir/NumGenerator.c.obj: C_COMPILER__TP_P_22_23_Debug C$:/P/TP/TP_P_22_23/NumGenerator.c || cmake_object_order_depends_target_TP_P_22_23
+  DEP_FILE = CMakeFiles\TP_P_22_23.dir\NumGenerator.c.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\TP_P_22_23.dir
   OBJECT_FILE_DIR = CMakeFiles\TP_P_22_23.dir
@@ -75,7 +75,7 @@ build CMakeFiles/TP_P_22_23.dir/interface.c.obj: C_COMPILER__TP_P_22_23_Debug C$
 #############################################
 # Link the executable TP_P_22_23.exe
 
-build TP_P_22_23.exe: C_EXECUTABLE_LINKER__TP_P_22_23_Debug CMakeFiles/TP_P_22_23.dir/main.c.obj CMakeFiles/TP_P_22_23.dir/server.c.obj CMakeFiles/TP_P_22_23.dir/interface.c.obj
+build TP_P_22_23.exe: C_EXECUTABLE_LINKER__TP_P_22_23_Debug CMakeFiles/TP_P_22_23.dir/main.c.obj CMakeFiles/TP_P_22_23.dir/NumGenerator.c.obj CMakeFiles/TP_P_22_23.dir/interface.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TP_P_22_23.dir

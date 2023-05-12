@@ -2,7 +2,7 @@
 //2019112744
 
 #include "util.h"
-#include "server.h"
+#include "interface.h"
 
 
 char *alfaNumGenerator(int comprimento){
