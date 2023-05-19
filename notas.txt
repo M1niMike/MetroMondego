@@ -13,3 +13,7 @@ Possiveis comandos:
 --Corrigir a logica dos arryas + comandos, baseados no ex (ArrayDinamico)
 --Fazer a lista ligada de trajetos.
 
+
+Corregir:
+Adição de Paragens/Linhas com dois nomes
+
