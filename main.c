@@ -19,8 +19,8 @@ int main()
             case 1: ppr = cmdRegistarParagem(ppr, &total); break;
             case 2: ppr = cmdEliminarParagem(ppr, &total); break;
             case 3: cmdListp(ppr, total); break;
-            case 4: pln = cmdAdicionaLinha(pln, total); break;
-            case 5: pln = cmdAtualizaLinha(pln); break;
+            case 4: pln = cmdAdicionaLinha(pln, ppr, total); break;
+            case 5: pln = cmdAtualizaLinha(pln, ppr, total); break;
             case 6: cmdListl(pln); break;
         }
     }while(i != 8);
