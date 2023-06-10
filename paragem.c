@@ -44,28 +44,31 @@ pointerParagem cmdEliminarParagem(pointerParagem ppr, int *tam)
     int index = 0;
     char id[TAM];
 
-    printf("\nInsira um numero de paragem:");
+    printf("\nInsira um numero de paragem: ");
     fflush(stdin);
     fgets(id, sizeof(id), stdin);
     id[strcspn(id, "\n")] = 0;
 
     //procura o a paragem com o id incidcado e guarda seu index do array
+
+
     for (int i = 0; i < *tam; i++) {
         if (strcmp(ppr[i].id, id) == 0) {
             printf("A remover [%s]\n", ppr[i].nomeParagem);
             index = i;
-            break;
 
+            retorna = ppr[index];
+            ppr[index] = ppr[(*tam) - 1];
+
+            (*tam)--;
+
+            aux = realloc(ppr, (*tam) * sizeof(struct paragem));
+
+            break;
         }
     }
 
-    //impede que aconteça uma copia
-    retorna = ppr[index];
-    ppr[index] = ppr[(*tam) - 1];
 
-    (*tam)--;
-
-    aux = realloc(ppr, (*tam) * sizeof(struct paragem));
 
     if (aux == NULL) {
         printf("Erro na realocacao de memoria (remover paragem)");

@@ -24,7 +24,7 @@ pointerLinha insereNoFinalLinha(pointerLinha head, pointerLinha novo){
 }
 
 
-pointerLinha lerFicheiroLinha()
+pointerLinha lerFicheiroLinha(pointerLinha head,pointerParagem ppr, int tam)
 {
     FILE* f;
     char nomeLinha[TAM], auxLinha[TAM], nomeParagem[TAM], idParagem[TAM];
@@ -76,7 +76,7 @@ pointerLinha lerFicheiroLinha()
             printf("Erro na leitura da linha do ficheiro\n");
             fclose(f);
             free(novo);  // libera a memória alocada até o momento
-            return NULL;
+            return head;
         }
 
         pointerParagem novaParagem = malloc(sizeof(PARAGEM));
@@ -84,11 +84,12 @@ pointerLinha lerFicheiroLinha()
             printf("Erro na alocação de memória para a paragem\n");
             fclose(f);
             free(novo);  // Liberar a memória alocada até o momento
-            return NULL;
+            return head;
         }
 
         nomeParagem[strcspn(nomeParagem, "\n")] = 0;
         idParagem[strcspn(idParagem, "\n")] = 0;
+
 
         strcpy(novaParagem->nomeParagem, nomeParagem);
         strcpy(novaParagem->id, idParagem);
@@ -101,7 +102,7 @@ pointerLinha lerFicheiroLinha()
             fclose(f);
             free(novaParagem);
             free(novo);
-            return NULL;
+            return head;
         }
 
         //adiciona a paragem na linha e incrementa o n de paragens
@@ -111,7 +112,20 @@ pointerLinha lerFicheiroLinha()
 
     novo->prox = NULL;
     //insere no final
-    p = insereNoFinalLinha(p, novo);
+    p = insereNoFinalLinha(head, novo);
+
+
+    //verifica se as paragens do ficheiro fazem parte do sistema
+    for(int i = 0; i < p->numParagens; i++){
+        if(strcmp(p->paragens[i].nomeParagem, ppr[i].nomeParagem) != 0){
+            printf("Adicao de linha por ficheiro impedida\n");
+            printf("uma das paragens do ficheiro nao existe no sistema: %s\n", nomeParagem);
+            fclose(f);
+            free(p);
+            //free(novo);
+            return head;
+        }
+    }
 
     fclose(f);
     return p;
