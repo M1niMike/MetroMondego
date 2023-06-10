@@ -1,7 +1,6 @@
 //Micael Melo Eid
 //2019112744
 
-#include "util.h"
 #include "interface.h"
 
 int main()
@@ -11,7 +10,6 @@ int main()
    int total = 0;
    int i;
 
-   // s.paragens = malloc(maxParagem * sizeof (*s.paragens));
 
     do{
         i = interface();
@@ -22,6 +20,7 @@ int main()
             case 4: pln = cmdAdicionaLinha(pln, ppr, total); break;
             case 5: pln = cmdAtualizaLinha(pln, ppr, total); break;
             case 6: cmdListl(pln); break;
+            case 7: cmdCalculaLinha(pln, ppr, total); break;
         }
     }while(i != 8);
 

@@ -9,4 +9,9 @@
 #include <string.h>
 #include <time.h>
 #include <stdbool.h>
+
+#define TAM 256
+
+
+
 #endif //_UTIL_H_

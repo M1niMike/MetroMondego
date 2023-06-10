@@ -1,12 +1,12 @@
 Possiveis comandos:
     Paragens: (Array de estruturas dinamicos)
         Registar Paragem (Done)
-        Eliminar Paragem
+        Eliminar Paragem (Done)
         Listar Paragens (Done)
     Linhas/Percurso/Trajeto (Lista ligadas)
-        Adicionar linha
-        Atualizar linha (Adicionar paragem ou eliminar uma)
-        Visualizar linha
+        Adicionar linha (Done)
+        Atualizar linha (Done)
+        Visualizar linha (Done)
     Calculo de Percurso (ver ponto 2.3 no enunciado)
 
 --Salvar paragem e linhas dentro de um ficheiro binario (ver ponto 2.4)
@@ -15,5 +15,5 @@ Possiveis comandos:
 
 
 Corregir:
-Adição de Paragens/Linhas com dois nomes
+
 
