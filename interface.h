@@ -18,5 +18,6 @@ void cmdListl(pointerLinha head);
 bool verificaLinha(pointerLinha pln, pointerLinha npln);
 bool verificaLinhaNome(pointerLinha pln, char *nomeLinha);
 void cmdCalculaLinha(pointerLinha head, pointerParagem p, int tam);
+pointerLinha cmdLeFicheiro(pointerLinha pln);
 
 #endif //_INTERFACE_H_

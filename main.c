@@ -2,7 +2,9 @@
 //2019112744
 
 #include "interface.h"
-#include "ficheiro.h"
+#include "ficheiroBin.h"
+#include "ficheiroTxt.h"
+
 
 int main()
 {
@@ -33,8 +35,9 @@ int main()
             case 5: pln = cmdAtualizaLinha(pln, ppr, total); break;
             case 6: cmdListl(pln); break;
             case 7: cmdCalculaLinha(pln, ppr, total); break;
+            case 8: pln = lerFicheiroLinha(); break;
         }
-    }while(i != 8);
+    }while(i != 9);
 
     escreveParagemBin(ppr, total);
 

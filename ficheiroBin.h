@@ -2,8 +2,8 @@
 // Created by mikae on 10/06/2023.
 //
 
-#ifndef TP_P_22_23__FICHEIRO_H
-#define TP_P_22_23__FICHEIRO_H
+#ifndef TP_P_22_23__FICHEIROBIN_H
+#define TP_P_22_23__FICHEIROBIN_H
 
 #include "interface.h"
 
@@ -13,4 +13,4 @@ pointerParagem leParagemBin(int *total);
 int escreveLinhaBin(pointerLinha pln);
 pointerLinha insereNoFinal(pointerLinha head, pointerLinha novo);
 pointerLinha recuperaLista();
-#endif //TP_P_22_23__FICHEIRO_H
+#endif //TP_P_22_23__FICHEIROBIN_H

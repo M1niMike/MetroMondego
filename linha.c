@@ -24,6 +24,7 @@ pointerLinha cmdAdicionaLinha(pointerLinha head, pointerParagem p, int tam)
 
     novo->prox = NULL;
 
+    //verifica se ja existe uma linha com o nome indicado
     if (verificaLinhaNome(head, novo->nomeLinha)) {
         printf("Essa linha ja existe!\n");
         free(novo);
@@ -35,8 +36,9 @@ pointerLinha cmdAdicionaLinha(pointerLinha head, pointerParagem p, int tam)
         return head;
     }
 
+    //inicia o contador de paragens a 0 e aloca espaco para as paragens
     novo->numParagens = 0;
-    novo->paragens = realloc(p, sizeof(PARAGEM) * (novo->numParagens + 1));
+    novo->paragens = malloc(novo->numParagens * sizeof(PARAGEM));
 
     if (novo->paragens == NULL) {
         printf("Erro na alocacao de espaco (Paragens/linha [%s]\n)", novo->nomeLinha);
@@ -84,6 +86,7 @@ pointerLinha cmdAtualizaLinha(pointerLinha head, pointerParagem p, int tam)
             return head;
         }
 
+        //percorre as linhas do sistema e se dar match com o pedido do user, a funcao pergunta qual paragem do sistema e para adicionar a linha
         while (aux != NULL) {
             if (strcmp(aux->nomeLinha, nomeLinha) == 0) {
                 aux->numParagens++;
@@ -102,8 +105,7 @@ pointerLinha cmdAtualizaLinha(pointerLinha head, pointerParagem p, int tam)
                 fgets(nomeParagem, sizeof(nomeParagem), stdin);
                 nomeParagem[strcspn(nomeParagem, "\n")] = 0;
 
-                printf("tam: %d\n", tam);
-
+                //percorre as paragens do sistema 
                 for (int i = 0; i < tam; i++) {
                     if (strcmp(p[i].nomeParagem, nomeParagem) == 0) {
 

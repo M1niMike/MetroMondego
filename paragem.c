@@ -21,9 +21,12 @@ pointerParagem cmdRegistarParagem(pointerParagem ppr, int *tam)
     fgets(novo.nomeParagem, sizeof(novo.nomeParagem), stdin);
     novo.nomeParagem[strcspn(novo.nomeParagem, "\n")] = 0;
 
+
+    //verifica se ja existe alguma paragem no sistema com o mesmo nome
     if (!verificaParagem(novo, ppr, *tam)) {
         return aux;
     }
+    //alfaNumGenerator gera o id alfanumero no formato L000
     strcpy(novo.id, alfaNumGenerator(4));
 
     aux[(*tam)] = novo;
@@ -46,6 +49,7 @@ pointerParagem cmdEliminarParagem(pointerParagem ppr, int *tam)
     fgets(id, sizeof(id), stdin);
     id[strcspn(id, "\n")] = 0;
 
+    //procura o a paragem com o id incidcado e guarda seu index do array
     for (int i = 0; i < *tam; i++) {
         if (strcmp(ppr[i].id, id) == 0) {
             printf("A remover [%s]\n", ppr[i].nomeParagem);
@@ -55,6 +59,7 @@ pointerParagem cmdEliminarParagem(pointerParagem ppr, int *tam)
         }
     }
 
+    //impede que aconteça uma copia
     retorna = ppr[index];
     ppr[index] = ppr[(*tam) - 1];
 

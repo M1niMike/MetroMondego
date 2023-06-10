@@ -2,7 +2,7 @@
 // Created by mikae on 10/06/2023.
 //
 
-#include "ficheiro.h"
+#include "ficheiroBin.h"
 
 void escreveParagemBin(pointerParagem b, int total){
     FILE *f;
@@ -119,7 +119,7 @@ pointerLinha recuperaLista() {
             fclose(f);
             return p;
         }
-        
+
         fread(novo->paragens, sizeof(PARAGEM), novo->numParagens, f);
         novo->prox = NULL;
         p = insereNoFinal(p, novo);

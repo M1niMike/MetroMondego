@@ -3,6 +3,8 @@
 
 #include "interface.h"
 
+
+//funcoes de verificacoes boolean
 bool verificaLinha(pointerLinha pln, pointerLinha npln)
 {
     while (pln != NULL) {
@@ -40,6 +42,7 @@ bool verificaParagem(PARAGEM p, pointerParagem ppr, int tam)
 
 void cmdListp(pointerParagem ppr, int tam)
 {
+    //printa as paragens do sistema, n de uma linha
     if (tam > 0) {
         for (int i = 0; i < tam; i++) {
             if (strcmp(ppr[i].id, "\0") != 0) {
@@ -60,7 +63,7 @@ void cmdListl(pointerLinha head)
         printf("Nenhuma linha existente!\n");
         return;
     }
-
+    //percorre as lista/linhas e printa suas paragens
     while (aux != NULL) {
         printf("\n---LINHA: %s---", aux->nomeLinha);
         if (aux->numParagens == 0) {
@@ -91,10 +94,11 @@ void cmdCalculaLinha(pointerLinha head, pointerParagem p, int tam){
 
     printf("---Percurso---\n");
     pointerLinha aux = head;
+    //percorre as linhas e da match para calcular o percurso de uma partida a uma chegadam, apenas move para frente ->
     while (aux != NULL) {
         for (int i = 0; i < aux->numParagens; i++) {
             if (strcmp(aux->paragens[i].nomeParagem, partida) == 0){ //percorre as paragens para encontrar o ponto de partida
-               for(int j = 0; i < aux->numParagens - 1; j++){
+               for(int j = 0; i < aux->numParagens; j++){
                    if(strcmp(aux->paragens[j + 1].nomeParagem, chegada) == 0){ //percorre as paragens para encontrar o ponto de chegada
                        printf("Linha: %s\n", aux->nomeLinha);
                        printf("Percurso: %s ", partida);
@@ -111,7 +115,7 @@ void cmdCalculaLinha(pointerLinha head, pointerParagem p, int tam){
     }
 }
 
-
+//interface basica retirada dos slides da teorica, apenas adaptado para o tp
 int interface() {
     int i;
     puts("\n");
@@ -122,12 +126,13 @@ int interface() {
     puts("5 - Atualiza Linha");
     puts("6 - Lista Linha");
     puts("7 - Calcula Percurso");
-    puts("8 - Sair");
+    puts("8 - Le ficheiro de texto");
+    puts("9 - Sair");
 
     do {
         printf("\nComando: ");
         scanf(" %d", &i);
-    } while (i < 1 || i > 8);
+    } while (i < 1 || i > 9);
 
     return i;
 }
