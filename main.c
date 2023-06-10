@@ -2,6 +2,7 @@
 //2019112744
 
 #include "interface.h"
+#include "ficheiro.h"
 
 int main()
 {
@@ -10,6 +11,17 @@ int main()
    int total = 0;
    int i;
 
+    ppr = leParagemBin(&total);
+
+    if(ppr == NULL){
+        printf("Ficheiro paragem.bin vazio\n");
+    }
+
+    pln = recuperaLista();
+
+    if(pln == NULL){
+        printf("Ficheiro linha.bin vazio\n");
+    }
 
     do{
         i = interface();
@@ -23,6 +35,15 @@ int main()
             case 7: cmdCalculaLinha(pln, ppr, total); break;
         }
     }while(i != 8);
+
+    escreveParagemBin(ppr, total);
+
+    if(escreveLinhaBin(pln) == -1){
+        printf("erro na escrita da linha para o ficheiro bin\n");
+    }
+
+    free(pln);
+    free(ppr);
 
     return 0;
 }

@@ -97,14 +97,15 @@ pointerLinha cmdAtualizaLinha(pointerLinha head, pointerParagem p, int tam)
 
                 aux->paragens = novo;  // Atribui o ponteiro realocado
 
-                printf("\nInsira o nome da da paragem a adicionar: ");
+                printf("\nInsira o nome da paragem a adicionar: ");
                 fflush(stdin);
                 fgets(nomeParagem, sizeof(nomeParagem), stdin);
                 nomeParagem[strcspn(nomeParagem, "\n")] = 0;
 
-                for (int i = 1; i < tam; i++) {
-                    if (strcmp(p[i].nomeParagem, nomeParagem) == 0) {
+                printf("tam: %d\n", tam);
 
+                for (int i = 0; i < tam; i++) {
+                    if (strcmp(p[i].nomeParagem, nomeParagem) == 0) {
 
                         printf("\np[i] [%d] \n", i);
                         aux->paragens[aux->numParagens - 1] = p[i];

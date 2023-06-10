@@ -65,12 +65,12 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="TP_P_22_23" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TP_P_22_23" TARGET_NAME="TP_P_22_23" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TP_P_22_23" RUN_TARGET_NAME="TP_P_22_23">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TP_P_22_23" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="true" USE_EXTERNAL_CONSOLE="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TP_P_22_23" TARGET_NAME="TP_P_22_23" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TP_P_22_23" RUN_TARGET_NAME="TP_P_22_23">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -92,7 +92,8 @@
       <workItem from="1683895382045" duration="10973000" />
       <workItem from="1684499841327" duration="638000" />
       <workItem from="1686325358149" duration="17464000" />
-      <workItem from="1686355831672" duration="10585000" />
+      <workItem from="1686355831672" duration="11063000" />
+      <workItem from="1686404778531" duration="9270000" />
     </task>
     <servers />
   </component>
