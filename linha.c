@@ -105,7 +105,7 @@ pointerLinha cmdAtualizaLinha(pointerLinha head, pointerParagem p, int tam)
                 fgets(nomeParagem, sizeof(nomeParagem), stdin);
                 nomeParagem[strcspn(nomeParagem, "\n")] = 0;
 
-                //percorre as paragens do sistema 
+                //percorre as paragens do sistema
                 for (int i = 0; i < tam; i++) {
                     if (strcmp(p[i].nomeParagem, nomeParagem) == 0) {
 
@@ -160,8 +160,6 @@ pointerLinha cmdAtualizaLinha(pointerLinha head, pointerParagem p, int tam)
                 }
 
                 printf("Paragem [%s] removida da linha [%s]!\n", nomeParagem, aux->nomeLinha);
-            } else {
-                printf("Paragem [%s] nao encontrada na linha [%s]. Nenhuma paragem removida.\n",nomeParagem,aux->nomeLinha);
             }
             aux = aux->prox;
 

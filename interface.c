@@ -47,7 +47,7 @@ void cmdListp(pointerParagem ppr, int tam)
         for (int i = 0; i < tam; i++) {
             if (strcmp(ppr[i].id, "\0") != 0) {
                 printf("\nNome da Paragem: %s", ppr[i].nomeParagem);
-                printf("\nID da Paragem: %s", ppr[i].id);
+                printf("\nID da Paragem: %s\n", ppr[i].id);
             }
         }
     } else {
@@ -65,13 +65,13 @@ void cmdListl(pointerLinha head)
     }
     //percorre as lista/linhas e printa suas paragens
     while (aux != NULL) {
-        printf("\n---LINHA: %s---", aux->nomeLinha);
+        printf("\n---LINHA: %s---\n", aux->nomeLinha);
         if (aux->numParagens == 0) {
-            printf("\nNenhuma paragem nesta linha.");
+            printf("\nNenhuma paragem nesta linha.\n");
         } else {
             for (int i = 0; i < aux->numParagens; i++) {
                 printf("\n\tNome da Paragem: %s", aux->paragens[i].nomeParagem);
-                printf("\n\tID da Paragem: %s", aux->paragens[i].id);
+                printf("\n\tID da Paragem: %s\n", aux->paragens[i].id);
             }
         }
         aux = aux->prox;
