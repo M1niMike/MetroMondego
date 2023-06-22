@@ -61,8 +61,10 @@ int main()
         printf("erro na escrita da linha para o ficheiro bin\n");
     }
 
-    free(pln);
-    free(ppr);
+
+   //Faltou libertar a memoria das linhas(paragens) e paragens do sistema
+    //free(pln);
+    //free(ppr);
 
     return 0;
 }
